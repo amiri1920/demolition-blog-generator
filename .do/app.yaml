@@ -1,0 +1,25 @@
+name: demolition-blog-generator
+region: nyc
+services:
+- build_command: npm run build
+  environment_slug: node-js
+  envs:
+  - key: NEXT_PUBLIC_N8N_WEBHOOK_URL
+    scope: RUN_AND_BUILD_TIME
+    value: "https://azdemoexperts.app.n8n.cloud/webhook/c7ffde47-ab0e-42d4-992f-183ea910e4ec"
+  - key: NEXT_PUBLIC_SESSION_PREFIX
+    scope: RUN_AND_BUILD_TIME
+    value: "demolition_blog_"
+  - key: NODE_ENV
+    scope: RUN_AND_BUILD_TIME
+    value: "production"
+  github:
+    branch: main
+    deploy_on_push: true
+    repo: YOUR_GITHUB_USERNAME/demolition-blog-generator
+  http_port: 3000
+  instance_count: 1
+  instance_size_slug: apps-s-1vcpu-0.5gb
+  name: demolition-blog-app
+  run_command: npm start
+  source_dir: /

@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Demolition Blog AI Generator
 
-## Getting Started
+A modern, production-ready web application for generating professional blog posts for the demolition industry using AI. Built with Next.js 14+, TypeScript, and integrated with n8n workflows via webhooks.
 
-First, run the development server:
+## Features
 
+### Core Functionality
+- 🤖 **AI-Powered Content Generation** - Generate professional, SEO-optimized blog posts instantly
+- 📚 **50+ Knowledge Base** - Access extensive demolition industry data and best practices  
+- 🖼️ **AI-Generated Images** - Unique visuals created for each blog post
+- 💬 **Interactive Chat Interface** - Ask follow-up questions and refine content
+- 📱 **Responsive Design** - Works seamlessly on desktop, tablet, and mobile devices
+- 🌙 **Dark Mode Support** - Toggle between light and dark themes
+
+### Content Features
+- **8 Pre-defined Topics**:
+  - Manual vs Mechanical Demolition
+  - Commercial Demolition Equipment Types
+  - Safety Protocols in High-Rise Demolition
+  - Environmental Considerations in Demolition
+  - Cost Factors in Demolition Projects
+  - Asbestos Removal Procedures
+  - Explosive Demolition Techniques
+  - Residential vs Commercial Demolition
+- **Custom Topic Input** - Enter your own demolition-related topics
+- **Advanced Options** - Control tone, word count, keywords, and image generation
+
+### Export Options
+- 📄 **Markdown Export** - Download as .md files
+- 🌐 **HTML Export** - Ready-to-publish HTML format
+- 📑 **PDF Export** - Professional PDF documents
+- 📋 **Copy to Clipboard** - Quick content copying
+
+## Tech Stack
+
+- **Frontend**: Next.js 14+ with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Custom shadcn/ui components
+- **State Management**: Zustand
+- **Data Fetching**: React Query (TanStack Query)
+- **Animations**: Framer Motion
+- **Markdown Rendering**: React Markdown with remark-gfm
+- **Backend Integration**: n8n webhook API
+
+## Quick Start
+
+1. **Clone and install**
+   ```bash
+   git clone https://github.com/yourusername/demolition-blog-generator.git
+   cd demolition-blog-generator
+   npm install
+   ```
+
+2. **Configure environment**
+   ```bash
+   cp .env.local.example .env.local
+   # Edit .env.local with your n8n webhook URL
+   ```
+
+3. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Deployment
+
+### Deploy to Vercel (Recommended)
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install -g vercel
+vercel --prod
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deploy with Docker
+```bash
+docker build -t demolition-blog-generator .
+docker run -p 3000:3000 -e NEXT_PUBLIC_N8N_WEBHOOK_URL=your-webhook-url demolition-blog-generator
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## n8n Integration
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Configure your n8n webhook to accept:
+```json
+{
+  "chatInput": "topic",
+  "sessionId": "unique-id",
+  "options": {
+    "tone": "professional",
+    "wordCount": 1200,
+    "keywords": ["demolition"],
+    "generateImages": true
+  }
+}
+```
 
-## Learn More
+## License
 
-To learn more about Next.js, take a look at the following resources:
+MIT License - see LICENSE file for details
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Made with ❤️ for the demolition industry
