@@ -4,11 +4,6 @@
   "devCommand": "npm run dev",
   "installCommand": "npm install",
   "outputDirectory": ".next",
-  "env": {
-    "NEXT_PUBLIC_N8N_WEBHOOK_URL": "@n8n_webhook_url",
-    "NEXT_PUBLIC_API_KEY": "@api_key",
-    "NEXT_PUBLIC_GA_ID": "@ga_id"
-  },
   "headers": [
     {
       "source": "/api/(.*)",
