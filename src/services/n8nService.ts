@@ -298,7 +298,7 @@ export const BlogService = {
           mainContent: mainMatch?.[1]?.trim() || aiResponse,
           conclusion: conclusionMatch?.[1]?.trim() || '',
           imageUrls: [],
-          keywords: keywordsMatch?.[1]?.split(',').map(k => k.trim()) || [],
+          keywords: keywordsMatch?.[1]?.split(',').map((k: string) => k.trim()) || [],
           timestamp: new Date().toISOString(),
           wordCount: 0,
           readingTime: 0
